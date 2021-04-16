@@ -1,6 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+// JitPack Maven
+apply plugin: 'com.github.dcendents.android-maven'
+// Your Group
+group='com.github.RomanBlack-pro'
 
 android {
     compileSdkVersion 30
@@ -38,4 +42,5 @@ dependencies {
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5"
+
 }
