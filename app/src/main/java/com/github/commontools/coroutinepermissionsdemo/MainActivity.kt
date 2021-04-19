@@ -7,6 +7,7 @@ import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.github.commontools.coroutinepermissions.InlineRequestPermissionException
+import com.github.commontools.coroutinepermissions.Test
 import com.github.commontools.coroutinepermissions.requestPermissionsForResult
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
@@ -23,15 +24,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Test.test()
+//        onClick()
 
-        onClick()
-
-        CoroutineScope(Dispatchers.Main).launch {
-            try {
-                requestPermissionsForResult(*permsSd, rationale = "为了更好的提供服务，需要获取存储空间权限")
-            } catch (e: Exception) {
-            }
-        }
+//        CoroutineScope(Dispatchers.Main).launch {
+//            try {
+//                requestPermissionsForResult(*permsSd, rationale = "为了更好的提供服务，需要获取存储空间权限")
+//            } catch (e: Exception) {
+//            }
+//        }
     }
 
     private fun onClick() {

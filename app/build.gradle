@@ -14,8 +14,8 @@ android {
         applicationId "com.github.commontools.coroutinepermissionsdemo"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -42,6 +42,6 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5"
 
-    implementation 'com.github.RomanBlack-pro:CoroutinePermissions:2.0.0'
+    implementation project(path: ':coroutinepermissions')
 
 }
