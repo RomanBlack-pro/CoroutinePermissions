@@ -1,4 +1,4 @@
-package com.github.commontools.coroutinepermissions
+package com.github.lilei.coroutinepermissions
 
 import android.os.Bundle
 import androidx.annotation.Nullable
@@ -8,7 +8,7 @@ import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 import pub.devrel.easypermissions.PermissionRequest
 
-class RequestPermissionFragment : Fragment(), EasyPermissions.PermissionCallbacks {
+class RequestPermissionFragment : Fragment, EasyPermissions.PermissionCallbacks {
     private lateinit var permissions: Array<String>
     private var listener: RequestPermissionsListener? = null
     private val title by lazy {
@@ -32,14 +32,13 @@ class RequestPermissionFragment : Fragment(), EasyPermissions.PermissionCallback
             bundle.putStringArray(INTENT_TO_START, permissions)
             bundle.putString(TITLE, title)
             bundle.putString(RATIONALE, rationale)
-            val fragment =
-                RequestPermissionFragment()
+            val fragment = RequestPermissionFragment()
             fragment.arguments = bundle
             return fragment
         }
     }
 
-    init {
+    constructor() {
         retainInstance = true
     }
 
@@ -79,8 +78,7 @@ class RequestPermissionFragment : Fragment(), EasyPermissions.PermissionCallback
             removeFragment()
         } else {
             EasyPermissions.requestPermissions(
-                PermissionRequest.Builder(this,
-                    REQUEST_CODE, *permissions)
+                PermissionRequest.Builder(this, REQUEST_CODE, *permissions)
                     .setRationale(rationale)
                     .setTheme(R.style.Theme_AppCompat_Light_Dialog)
                     .build()

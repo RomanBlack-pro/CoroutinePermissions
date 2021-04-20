@@ -1,10 +1,10 @@
-package com.github.commontools.coroutinepermissions
+package com.github.lilei.coroutinepermissions
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import com.github.commontools.coroutinepermissions.callbacks.FailCallback
-import com.github.commontools.coroutinepermissions.callbacks.RequestResultListener
-import com.github.commontools.coroutinepermissions.callbacks.SuccessCallback
+import com.github.lilei.coroutinepermissions.callbacks.FailCallback
+import com.github.lilei.coroutinepermissions.callbacks.RequestResultListener
+import com.github.lilei.coroutinepermissions.callbacks.SuccessCallback
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,8 +17,7 @@ class InlinePermissionResult {
     private val successCallbacks = ArrayList<SuccessCallback>()
     private val failCallbacks = ArrayList<FailCallback>()
     private val responseListeners = ArrayList<RequestResultListener>()
-    private var listener = object :
-        RequestPermissionFragment.RequestPermissionsListener {
+    private var listener = object : RequestPermissionFragment.RequestPermissionsListener {
         override fun onRequestPermissions(hasPermissions: Boolean, permissions: Array<out String>) {
             if (hasPermissions) {
                 for (callback in successCallbacks) {
@@ -69,17 +68,16 @@ class InlinePermissionResult {
         val activity = activityReference.get()
         if (activity == null || activity.isFinishing) return
 
-        val oldFragment: RequestPermissionFragment? =
-            activity.supportFragmentManager.findFragmentByTag(TAG) as RequestPermissionFragment?
-        if (oldFragment != null) {
-            oldFragment.setListener(listener)
-        } else {
-            val newFragment =
-                RequestPermissionFragment.newInstance(
-                    title = title,
-                    rationale = rationale,
-                    permissions = *permissions
-                )
+//        val oldFragment: RequestPermissionFragment? =
+//            activity.supportFragmentManager.findFragmentByTag(TAG) as RequestPermissionFragment?
+//        if (oldFragment != null) {
+//            oldFragment.setListener(listener)
+//        } else {
+            val newFragment = RequestPermissionFragment.newInstance(
+                title = title,
+                rationale = rationale,
+                permissions = *permissions
+            )
             newFragment.setListener(listener)
             CoroutineScope(Dispatchers.Main).launch {
                 activity.supportFragmentManager
@@ -89,5 +87,5 @@ class InlinePermissionResult {
             }
         }
 
-    }
+//    }
 }

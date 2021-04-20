@@ -1,4 +1,4 @@
-package com.github.commontools.coroutinepermissions.callbacks
+package com.github.lilei.coroutinepermissions.callbacks
 
 interface RequestResultListener {
     fun onSuccess()

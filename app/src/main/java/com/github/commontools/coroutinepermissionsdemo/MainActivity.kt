@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.github.commontools.coroutinepermissions.InlineRequestPermissionException
-import com.github.commontools.coroutinepermissions.Test
-import com.github.commontools.coroutinepermissions.requestPermissionsForResult
+import com.github.lilei.coroutinepermissions.InlineRequestPermissionException
+import com.github.lilei.coroutinepermissions.requestPermissionsForResult
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -24,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Test.test()
         onClick()
 
         CoroutineScope(Dispatchers.Main).launch {
