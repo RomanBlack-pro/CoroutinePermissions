@@ -25,14 +25,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Test.test()
-//        onClick()
+        onClick()
 
-//        CoroutineScope(Dispatchers.Main).launch {
-//            try {
-//                requestPermissionsForResult(*permsSd, rationale = "为了更好的提供服务，需要获取存储空间权限")
-//            } catch (e: Exception) {
-//            }
-//        }
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                requestPermissionsForResult(*permsSd, rationale = "为了更好的提供服务，需要获取存储空间权限")
+            } catch (e: Exception) {
+            }
+        }
     }
 
     private fun onClick() {

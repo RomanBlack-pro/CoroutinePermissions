@@ -8,7 +8,7 @@ import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 import pub.devrel.easypermissions.PermissionRequest
 
-class RequestPermissionFragment : Fragment, EasyPermissions.PermissionCallbacks {
+class RequestPermissionFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     private lateinit var permissions: Array<String>
     private var listener: RequestPermissionsListener? = null
     private val title by lazy {
@@ -39,7 +39,7 @@ class RequestPermissionFragment : Fragment, EasyPermissions.PermissionCallbacks 
         }
     }
 
-    constructor() {
+    init {
         retainInstance = true
     }
 
